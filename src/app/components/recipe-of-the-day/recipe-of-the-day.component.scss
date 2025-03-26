@@ -1,0 +1,158 @@
+.recipe-of-day {
+  margin-bottom: 32px;
+  
+  .card-container {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+  }
+  
+  .grid-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    
+    @media (min-width: 768px) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  
+  .image-section {
+    position: relative;
+    height: 300px;
+    
+    @media (min-width: 768px) {
+      height: 100%;
+    }
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .badge {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      padding: 6px 12px;
+      border-radius: 16px;
+      background-color: #eab308;
+      color: #fff;
+      font-weight: 500;
+      font-size: 14px;
+      
+      .badge-icon {
+        display: inline-block;
+        width: 14px;
+        height: 14px;
+        margin-right: 4px;
+        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>');
+        background-size: contain;
+      }
+    }
+  }
+  
+  .content-section {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    
+    .content-wrapper {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      justify-content: space-between;
+    }
+    
+    .title {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #1f2937;
+    }
+    
+    .description {
+      color: #6b7280;
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+    
+    .categories {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+      
+      .category-badge {
+        font-size: 12px;
+        padding: 4px 10px;
+        border-radius: 16px;
+        background-color: #f3f4f6;
+        color: #4b5563;
+        border: 1px solid #e5e7eb;
+      }
+    }
+    
+    .time {
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      color: #6b7280;
+      margin-bottom: 24px;
+      
+      .time-icon {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        margin-right: 8px;
+        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>');
+        background-size: contain;
+      }
+    }
+    
+    .nutrition-info {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin-bottom: 24px;
+      
+      .nutrition-item {
+        text-align: center;
+        
+        .value {
+          font-weight: 600;
+          font-size: 16px;
+          margin: 0;
+        }
+        
+        .label {
+          font-size: 12px;
+          color: #6b7280;
+          margin: 0;
+        }
+      }
+    }
+    
+    .view-button {
+      display: inline-block;
+      width: 100%;
+      padding: 10px 16px;
+      background-color: #3b82f6;
+      color: white;
+      text-align: center;
+      border-radius: 6px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background-color 0.2s;
+      
+      &:hover {
+        background-color: #2563eb;
+      }
+    }
+  }
+}
+

@@ -1,0 +1,27 @@
+<main class="home-container">
+  <h1 class="main-title">Delicious Recipes</h1>
+  
+  <!-- Recipe of the day -->
+  <section class="section">
+    <h2 class="section-title">Recipe of the Day</h2>
+    @if (recipeOfTheDay$ | async; as recipeOfTheDay) {
+      <app-recipe-of-the-day [recipe]="recipeOfTheDay"></app-recipe-of-the-day>
+    }
+  </section>
+  
+  <!-- Filters -->
+  <section class="section">
+    <app-recipe-filter (filterChange)="applyFilters($event)"></app-recipe-filter>
+  </section>
+  
+  <!-- Recipe Cards -->
+  <section class="section">
+    <h2 class="section-title">All Recipes</h2>
+    <div class="recipe-grid">
+      @for (recipe of filteredRecipes$ | async; track recipe.id) {
+        <app-recipe-card [recipe]="recipe"></app-recipe-card>
+      }
+    </div>
+  </section>
+</main>
+

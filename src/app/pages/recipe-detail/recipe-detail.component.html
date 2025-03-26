@@ -1,0 +1,100 @@
+<main class="recipe-detail">
+  <div class="back-link">
+    <a routerLink="/" class="back-button">
+      ← Back to recipes
+    </a>
+  </div>
+
+  @if (recipe$ | async; as recipe) {
+    <div class="recipe-grid">
+      <div class="left-column">
+        <div class="recipe-image">
+          <img [src]="recipe.image" [alt]="recipe.name">
+        </div>
+        
+        <div class="nutrition-section">
+          <h2 class="section-title">Nutrition Information</h2>
+          <div class="nutrition-grid">
+            <div class="nutrition-item">
+              <p class="value">{{recipe.calories}}</p>
+              <p class="label">Calories</p>
+            </div>
+            <div class="nutrition-item">
+              <p class="value">{{recipe.netCarbs}}g</p>
+              <p class="label">Net Carbs</p>
+            </div>
+            <div class="nutrition-item">
+              <p class="value">{{recipe.protein}}g</p>
+              <p class="label">Protein</p>
+            </div>
+            <div class="nutrition-item">
+              <p class="value">{{recipe.fat}}g</p>
+              <p class="label">Fat</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="right-column">
+        <h1 class="recipe-title">{{recipe.name}}</h1>
+        
+        <div class="rating-container">
+          <app-star-rating [rating]="recipe.rating"></app-star-rating>
+          <span class="reviews">
+            ({{recipe.rating}} from {{50 + getRandomInt(50)}} reviews)
+          </span>
+        </div>
+        
+        <div class="categories">
+          @for (category of recipe.categories; track $index) {
+            <span class="category-badge">{{category}}</span>
+          }
+        </div>
+        
+        <div class="recipe-meta">
+          <div class="meta-item">
+            <span class="meta-icon time-icon"></span>
+            <span>{{recipe.time}} mins</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-icon chef-icon"></span>
+            <span>{{recipe.difficulty}}</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-icon area-icon"></span>
+            <span>{{recipe.area}}</span>
+          </div>
+        </div>
+        
+        <div class="ingredients-section">
+          <h2 class="section-title">Ingredients</h2>
+          <ul class="ingredients-list">
+            @for (ingredient of recipe.ingredients; track $index) {
+              <li class="ingredient-item">
+                <div class="ingredient-number">{{$index + 1}}</div>
+                <span>{{ingredient}}</span>
+              </li>
+            }
+          </ul>
+        </div>
+        
+        <div class="separator"></div>
+        
+        <div class="instructions-section">
+          <h2 class="section-title">Instructions</h2>
+          <ol class="instructions-list">
+            @for (step of recipe.instructions; track $index) {
+              <li class="instruction-item">
+                <div class="step-number">{{$index + 1}}</div>
+                <p>{{step}}</p>
+              </li>
+            }
+          </ol>
+        </div>
+      </div>
+    </div>
+  } @else {
+    <div class="loading">Loading recipe...</div>
+  }
+</main>
+

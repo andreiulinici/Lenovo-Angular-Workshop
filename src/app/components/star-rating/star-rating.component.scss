@@ -1,0 +1,28 @@
+.star-rating {
+  display: flex;
+  align-items: center;
+  
+  .stars {
+    display: flex;
+  }
+  
+  .star {
+    width: 20px;
+    height: 20px;
+    
+    &.filled {
+      color: #f59e0b;
+    }
+    
+    &.empty {
+      color: #d1d5db;
+    }
+  }
+  
+  .rating-text {
+    margin-left: 8px;
+    color: #6b7280;
+    font-size: 14px;
+  }
+}
+

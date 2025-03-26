@@ -1,0 +1,59 @@
+<div class="recipe-of-day">
+  <div class="card-container">
+    <div class="grid-layout">
+      <div class="image-section">
+        <div class="badge">
+          <span class="badge-icon"></span>
+          Recipe of the Day
+        </div>
+        <img [src]="recipe.image" [alt]="recipe.name">
+      </div>
+      
+      <div class="content-section">
+        <div class="content-wrapper">
+          <div>
+            <h3 class="title">{{recipe.name}}</h3>
+            <p class="description">{{recipe.description}}</p>
+            
+            <app-star-rating [rating]="recipe.rating"></app-star-rating>
+            
+            <div class="categories">
+              @for (category of recipe.categories.slice(0, 4); track $index) {
+                <span class="category-badge">{{category}}</span>
+              }
+            </div>
+            
+            <div class="time">
+              <span class="time-icon"></span>
+              <span>{{recipe.time}} minutes</span>
+            </div>
+          </div>
+          
+          <div class="nutrition-info">
+            <div class="nutrition-item">
+              <p class="value">{{recipe.calories}}</p>
+              <p class="label">Calories</p>
+            </div>
+            <div class="nutrition-item">
+              <p class="value">{{recipe.netCarbs}}g</p>
+              <p class="label">Carbs</p>
+            </div>
+            <div class="nutrition-item">
+              <p class="value">{{recipe.protein}}g</p>
+              <p class="label">Protein</p>
+            </div>
+            <div class="nutrition-item">
+              <p class="value">{{recipe.fat}}g</p>
+              <p class="label">Fat</p>
+            </div>
+          </div>
+          
+          <a [routerLink]="['/recipe', recipe.id]" class="view-button">
+            View Recipe
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
